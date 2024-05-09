@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  flex-direction: column;
+  background: #fff;
+  /* 页面背景色 */
+}
+
+section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  /* 设置z-index确保波浪处于其他内容下方 */
+  overflow: hidden;
+  /* 隐藏超出部分 */
+}
+
+section .wavy {
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(247, 236, 228, 1);
+}
+
+section .wavy div {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 25%);
+}
+
+section .wavy div span {
+  position: absolute;
+  top: 0;
+  background: rgba(247, 236, 228, 1);
+}
+
+section .wavy div:nth-child(1) span {
+  z-index: 3;
+  animation: animate 20s linear infinite;
+  border-radius: 40%;
+  background: rgba(107, 0, 58, 0.75);
+}
+
+section .wavy div:nth-child(2) span {
+  z-index: 2;
+  animation: animate 22s linear infinite;
+  border-radius: 36%;
+  background: rgba(190, 32, 47, 0.5);
+}
+
+section .wavy div:nth-child(3) span {
+  z-index: 1;
+  animation: animate 24s linear infinite;
+  border-radius: 38%;
+  background: rgba(227, 82, 90, 0.25);
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.adm-capsule-tabs-tab-list {
+  display: flex;
+  flex-direction: column;
+
+  .adm-capsule-tabs-tab-wrapper {
+    flex: auto;
+    padding: 0 6px;
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* 字体引入 */
+/*
+<weight>: Use a value from 200 to 800
+*/
+
+.font_extra_bold {
+  font-family: "Dosis", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+}
+
+.font_normal_bold {
+  font-family: "Dosis", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+}
+
+.font_medium_bold {
+  font-family: "Dosis", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+}

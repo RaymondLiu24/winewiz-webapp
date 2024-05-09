@@ -1,0 +1,13 @@
+.BudgetScreen{
+  :global {
+    .adm-capsule-tabs-tab-active{
+      background-color: #FD877F;
+    }
+    .adm-capsule-tabs-header{
+      border-bottom: none;
+    }
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
